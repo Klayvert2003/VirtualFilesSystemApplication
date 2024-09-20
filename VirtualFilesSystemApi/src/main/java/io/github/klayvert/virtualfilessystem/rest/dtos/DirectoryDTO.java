@@ -4,11 +4,13 @@ import io.github.klayvert.virtualfilessystem.domain.entities.Directory;
 import io.github.klayvert.virtualfilessystem.domain.entities.File;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class DirectoryDTO {
     private Long directoryId;
