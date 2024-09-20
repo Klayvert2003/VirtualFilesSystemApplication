@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    config:
+      import-check:
+        enabled: false
+
+  profiles:
+    active: dev
+
+springdoc:
+  api-docs:
+    path: /api-docs
