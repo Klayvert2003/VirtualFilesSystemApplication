@@ -27,16 +27,12 @@ public class DirectoryService {
     @Transactional
     public void save(DirectoryDTO dto) {
         if (dto.getParentDirectory() != null && dto.getParentDirectory().getDirectoryId() != null) {
-            // Buscar o diretório pai no banco de dados
-            Directory parentDirectory = repository.findById(dto.getParentDirectory().getDirectoryId())
-                    .orElseThrow(() -> new RuntimeException("Parent directory not found"));
+            Directory parentDirectory = DirectoryDTO.toOBJ(this.findById(dto.getParentDirectory().getDirectoryId()));
 
-            // Garantir que o diretório atual não está sendo associado a si mesmo como pai
             if (dto.getDirectoryId() == null || !dto.getDirectoryId().equals(parentDirectory.getDirectoryId())) {
-                // Associar o diretório pai corretamente
                 dto.setParentDirectory(DirectoryDTO.toOBJ(DirectoryDTO.toDTO(parentDirectory)));
             } else {
-                throw new RuntimeException("A directory cannot be its own parent");
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "A directory cannot be its own parent");
             }
         }
 
@@ -48,6 +44,14 @@ public class DirectoryService {
 
         if (dto.getFiles().isEmpty() && !findDirectory.getFiles().isEmpty()) {
             dto.setFiles(findDirectory.getFiles());
+        }
+
+        if (dto.getSubDirectories().isEmpty() && !findDirectory.getSubDirectories().isEmpty()) {
+            dto.setSubDirectories(findDirectory.getSubDirectories());
+        }
+
+        if (dto.getParentDirectory() == null && findDirectory.getParentDirectory() != null) {
+            dto.setSubDirectories(findDirectory.getSubDirectories());
         }
 
         this.repository.save(DirectoryDTO.toOBJ(dto));
