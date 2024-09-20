@@ -5,7 +5,7 @@ spring:
         enabled: false
 
   profiles:
-    active: dev
+    active: docker
 
 springdoc:
   api-docs:
