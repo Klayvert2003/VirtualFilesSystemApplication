@@ -25,7 +25,7 @@ public class DirectoryService {
     }
 
     @Transactional
-    public void save(DirectoryDTO dto) {
+    public DirectoryDTO save(DirectoryDTO dto) {
         if (dto.getParentDirectory() != null && dto.getParentDirectory().getDirectoryId() != null) {
             Directory parentDirectory = DirectoryDTO.toOBJ(this.findById(dto.getParentDirectory().getDirectoryId()));
 
@@ -36,10 +36,10 @@ public class DirectoryService {
             }
         }
 
-        this.repository.save(DirectoryDTO.toOBJ(dto));
+        return DirectoryDTO.toDTO(this.repository.save(DirectoryDTO.toOBJ(dto)));
     }
 
-    public void update(DirectoryDTO dto) {
+    public DirectoryDTO update(DirectoryDTO dto) {
         Directory findDirectory = DirectoryDTO.toOBJ(this.findById(dto.getDirectoryId()));
 
         if (dto.getFiles().isEmpty() && !findDirectory.getFiles().isEmpty()) {
@@ -54,7 +54,7 @@ public class DirectoryService {
             dto.setSubDirectories(findDirectory.getSubDirectories());
         }
 
-        this.repository.save(DirectoryDTO.toOBJ(dto));
+        return DirectoryDTO.toDTO(this.repository.save(DirectoryDTO.toOBJ(dto)));
     }
 
     public void delete(Long id) {

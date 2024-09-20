@@ -28,14 +28,14 @@ public class DirectoryController {
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public void save(@RequestBody DirectoryDTO dto) {
-        this.directoryService.save(dto);
+    public DirectoryDTO save(@RequestBody DirectoryDTO dto) {
+        return this.directoryService.save(dto);
     }
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.OK)
-    public void update(@RequestBody DirectoryDTO dto) {
-        this.directoryService.update(dto);
+    public DirectoryDTO update(@RequestBody DirectoryDTO dto) {
+        return this.directoryService.update(dto);
     }
 
     @DeleteMapping("/delete/{id}")
