@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
+import { Directory } from '../../shared/interfaces/directory.interface';
+import { DirectoriesService } from '../../shared/services/directories.service';
 
 @Component({
   selector: 'app-list',
@@ -9,13 +10,13 @@ import { Component, inject } from '@angular/core';
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
-    directories: any[] = [];
+    directories: Directory[] = [];
 
-    httpClient = inject(HttpClient);
+    directoriesService = inject(DirectoriesService);
 
     ngOnInit() {
-      this.httpClient.get<any>("/api/directory/find-all").subscribe((directories) => {
-          this.directories = directories;
-      });
+      this.directoriesService.getAll().subscribe((directories) => {
+        this.directories = directories;
+      })
     }
 }

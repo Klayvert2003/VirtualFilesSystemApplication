@@ -2,8 +2,8 @@
 
 <ul>
     @for (dir of directories; track dir.directoryId) {
-        <li>
-            {{ dir.directoryName }}
-        </li>
+        <li>{{ dir.directoryId }}</li>
+        <li>{{ dir.directoryName }}</li>
+        <li>{{ dir.createdAt }}</li>
     }
 </ul>
