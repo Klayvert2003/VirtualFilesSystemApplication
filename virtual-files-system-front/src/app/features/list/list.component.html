@@ -1,13 +1,3 @@
 @for (dir of directories; track dir.directoryId) {
-    <mat-card appearance="outlined">
-        <mat-card-header>
-            <mat-card-title>
-                <li>{{ dir.directoryName }}</li>
-            </mat-card-title>
-            <!-- <mat-card-subtitle>Herding group</mat-card-subtitle> -->
-        </mat-card-header>
-        <mat-card-actions>
-            <button mat-button>Learn More</button>
-        </mat-card-actions>
-    </mat-card>
+    <app-card [directory]="dir"></app-card>
 }
