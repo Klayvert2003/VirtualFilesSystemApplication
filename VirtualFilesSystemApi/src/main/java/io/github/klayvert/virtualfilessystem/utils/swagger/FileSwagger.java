@@ -1,7 +1,6 @@
 package io.github.klayvert.virtualfilessystem.utils.swagger;
 
 import io.github.klayvert.virtualfilessystem.rest.dtos.FileDTO;
-import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
