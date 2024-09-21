@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/directory")
+@RequestMapping("/api/directory")
 public class DirectoryController implements DirectorySwagger {
     private DirectoryService directoryService;
 

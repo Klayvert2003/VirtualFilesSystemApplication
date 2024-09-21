@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/file")
+@RequestMapping("/api/file")
 public class FileController implements FileSwagger {
     private FileService fileService;
 
