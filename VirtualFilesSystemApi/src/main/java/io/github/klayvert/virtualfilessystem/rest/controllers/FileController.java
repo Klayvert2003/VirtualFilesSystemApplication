@@ -2,6 +2,7 @@ package io.github.klayvert.virtualfilessystem.rest.controllers;
 
 import io.github.klayvert.virtualfilessystem.rest.dtos.FileDTO;
 import io.github.klayvert.virtualfilessystem.service.FileService;
+import io.github.klayvert.virtualfilessystem.utils.swagger.FileSwagger;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/file")
-public class FileController {
+public class FileController implements FileSwagger {
     private FileService fileService;
 
     @GetMapping("/find")

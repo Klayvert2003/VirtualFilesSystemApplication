@@ -2,6 +2,7 @@ package io.github.klayvert.virtualfilessystem.rest.controllers;
 
 import io.github.klayvert.virtualfilessystem.rest.dtos.DirectoryDTO;
 import io.github.klayvert.virtualfilessystem.service.DirectoryService;
+import io.github.klayvert.virtualfilessystem.utils.swagger.DirectorySwagger;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/directory")
-public class DirectoryController {
+public class DirectoryController implements DirectorySwagger {
     private DirectoryService directoryService;
 
     @GetMapping("/find")
