@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
+    directories: any[] = [];
 
+    httpClient = inject(HttpClient);
+
+    ngOnInit() {
+      this.httpClient.get<any>("/api/directory/find-all").subscribe((directories) => {
+          this.directories = directories;
+      });
+    }
 }

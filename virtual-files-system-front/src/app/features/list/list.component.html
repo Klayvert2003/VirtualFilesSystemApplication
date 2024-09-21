@@ -1,1 +1,9 @@
 <p>list works!</p>
+
+<ul>
+    @for (dir of directories; track dir.directoryId) {
+        <li>
+            {{ dir.directoryName }}
+        </li>
+    }
+</ul>
