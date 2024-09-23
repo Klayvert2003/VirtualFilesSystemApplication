@@ -15,10 +15,21 @@ services:
   file-system-api:
     build:
       context: ../VirtualFilesSystemApi
-      dockerfile: ../docker/Dockerfile
+      dockerfile: ./docker/Dockerfile
     depends_on:
       - file-system-db
     ports:
       - "8080:8080"
     container_name: file-system-api
+    restart: always
+
+  file-system-front:
+    build:
+      context: ../virtual-files-system-front
+      dockerfile: ./docker/Dockerfile
+    depends_on:
+      - file-system-api
+    ports:
+      - "4200:4200"
+    container_name: file-system-front
     restart: always
