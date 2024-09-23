@@ -3,3 +3,15 @@
     justify-content: flex-end;
     padding: 16px 0;
 }
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+}
+
+app-card {
+    flex: 1 1 150px;
+    max-width: 200px;
+}

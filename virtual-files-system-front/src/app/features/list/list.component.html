@@ -2,6 +2,8 @@
     <a mat-raised-button color="primary" [routerLink]="['/create-directory']">Criar pasta</a>
 </div>
 
-@for (dir of directories; track dir.directoryId) {
-<app-card [directory]="dir"></app-card>
-}
+<div class="card-container">
+    @for (dir of directories; track dir.directoryId) {
+        <app-card [directory]="dir"></app-card>
+    }
+</div>

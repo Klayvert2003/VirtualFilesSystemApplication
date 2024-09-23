@@ -1,11 +1,13 @@
-<mat-card appearance="outlined">
-    <mat-card-header>
-        <mat-card-title>
-            <li>{{ directoryName() }}</li>
-        </mat-card-title>
-        <!-- <mat-card-subtitle>Herding group</mat-card-subtitle> -->
-    </mat-card-header>
-    <mat-card-actions>
-        <button mat-button>Visualizar</button>
-    </mat-card-actions>
-</mat-card>
+<div class="card-container">
+    <mat-card class="card-directory" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>
+                <p class="title-content">{{ directoryName() }}</p>
+            </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="../../../../../assets/folder.jpeg" alt="Photo of a Shiba Inu">
+        <mat-card-actions class="text-container">
+            <button mat-button>Visualizar</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
