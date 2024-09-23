@@ -3,7 +3,9 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
+import { MatSnackBar } from '@angular/material/snack-bar'
 import { DirectoriesService } from '../../shared/services/directories.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -14,6 +16,8 @@ import { DirectoriesService } from '../../shared/services/directories.service';
 })
 export class CreateComponent {
   directoryService = inject(DirectoriesService);
+  matSnackBar = inject(MatSnackBar);
+  router = inject(Router);
 
   form = new FormGroup(
     {
@@ -33,7 +37,17 @@ export class CreateComponent {
           directoryName: this.form.controls.directoryName.value
       }
     ).subscribe(() => {
-      alert('Diretório criado!')
+      this.matSnackBar.open(
+        "Diretório criado com sucesso!",
+        "Ok",
+        {
+          duration: 3000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top'
+        }
+      );
+
+      this.router.navigateByUrl('/');
     })
   }
 }
