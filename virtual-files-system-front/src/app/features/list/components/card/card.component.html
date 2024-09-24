@@ -1,13 +1,12 @@
 <div class="card-container">
-    <mat-card class="card-directory" appearance="outlined">
-        <mat-card-header>
-            <mat-card-title>
-                <p class="title-content">{{ directoryName() }}</p>
-            </mat-card-title>
-        </mat-card-header>
-        <img mat-card-image src="../../../../../assets/folder.jpeg" alt="Photo of a Shiba Inu">
-        <mat-card-actions class="text-container">
-            <button mat-button>Visualizar</button>
-        </mat-card-actions>
-    </mat-card>
+    <a [routerLink]="['/visualize-directory', directory().directoryId]" style="text-decoration: none;">
+        <mat-card class="card-directory" appearance="outlined">
+            <mat-card-header>
+            </mat-card-header>
+            <img mat-card-image src="../../../../../assets/folder.jpeg" alt="Directory Image" class="directory-image">
+            <mat-card-actions class="text-container">
+                <p class="p-content">{{ directoryName() }}</p>
+            </mat-card-actions>
+        </mat-card>
+    </a>
 </div>

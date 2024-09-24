@@ -13,7 +13,11 @@ export class DirectoriesService {
       return this.httpClient.get<Directory[]>("/api/directory/find-all");
     };
 
+    findById(id: number) {
+      return this.httpClient.get<Directory>(`/api/directory/find?id=${id}`);
+    };
+
     saveRootDirectory(payload: RootDirectoryPayload) {
-      return this.httpClient.post<Directory[]>("/api/directory/save", payload);
+      return this.httpClient.post<Directory>("/api/directory/save", payload);
     };
 }
