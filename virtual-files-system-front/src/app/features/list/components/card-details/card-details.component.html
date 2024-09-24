@@ -1,15 +1,16 @@
-<div class="container">
+<div class="action-container">
     <button (click)="goBack()" class="go-back-button" mat-raised-button color="primary">Voltar</button>
+    <a mat-raised-button color="primary" [routerLink]="['/create-directory']" class="create-button">Criar pasta</a>
+</div>
 
-    <div class="card-container">
-        @if ((directory?.subDirectories ?? []).length > 0 || (directory?.files ?? []).length > 0) {
-            @for (subDir of directory?.subDirectories ?? []; track subDir.directoryId) {
-                <app-card [directory]="subDir"></app-card>
-            }
-
-            @for (file of directory?.files ?? []; track file.id) {
-                <app-card-file [file]="file"></app-card-file>
-            }
+<div class="card-container">
+    @if ((directory?.subDirectories ?? []).length > 0 || (directory?.files ?? []).length > 0) {
+        @for (subDir of directory?.subDirectories ?? []; track subDir.directoryId) {
+            <app-card [directory]="subDir"></app-card>
         }
-    </div>
+
+        @for (file of directory?.files ?? []; track file.id) {
+            <app-card-file [file]="file"></app-card-file>
+        }
+    }
 </div>
