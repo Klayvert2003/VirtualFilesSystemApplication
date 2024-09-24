@@ -1,13 +1,15 @@
-<button (click)="goBack()" class="go-back-button" mat-raised-button color="primary">Voltar</button>
+<div class="container">
+    <button (click)="goBack()" class="go-back-button" mat-raised-button color="primary">Voltar</button>
 
-<div class="card-container">
-    @if ((directory?.subDirectories ?? []).length > 0 || (directory?.files ?? []).length > 0) {
-        @for (subDir of directory?.subDirectories ?? []; track subDir.directoryId) {
-            <app-card [directory]="subDir"></app-card>
-        }
+    <div class="card-container">
+        @if ((directory?.subDirectories ?? []).length > 0 || (directory?.files ?? []).length > 0) {
+            @for (subDir of directory?.subDirectories ?? []; track subDir.directoryId) {
+                <app-card [directory]="subDir"></app-card>
+            }
 
-        @for (file of directory?.files ?? []; track file.id) {
-            <app-card-file [file]="file"></app-card-file>
+            @for (file of directory?.files ?? []; track file.id) {
+                <app-card-file [file]="file"></app-card-file>
+            }
         }
-    }
+    </div>
 </div>

@@ -7,7 +7,7 @@
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: 80px;
     gap: 16px;
     justify-content: space-between;
 }
@@ -15,4 +15,14 @@
 app-card, app-card-file {
     flex: 1 1 150px;
     max-width: 150px;
+}
+
+.container {
+    margin-top: 40px;
+    max-width: 3000px;
+}
+
+.go-back-button {
+    width: 100%;
+    max-width: 100px;
 }
