@@ -37,7 +37,7 @@ export class CreateComponent {
   onSubmit() {
     const directoryId = Number(this.activatedRoute.snapshot.paramMap.get("id"));
 
-    if (directoryId !== null) {
+    if (directoryId !== 0) {
       this.directoryService.saveSubDirectory(
         {
             directoryName: this.form.controls.directoryName.value,
