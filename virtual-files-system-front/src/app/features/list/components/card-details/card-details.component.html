@@ -1,6 +1,6 @@
 <div class="action-container">
     <button (click)="goBack()" class="go-back-button" mat-raised-button color="primary">Voltar</button>
-    <a mat-raised-button color="primary" [routerLink]="['/create-directory']" class="create-button">Criar pasta</a>
+    <a mat-raised-button color="primary" [routerLink]="['/create-directory', directory?.directoryId]" class="create-button">Criar pasta</a>
 </div>
 
 <div class="card-container">

@@ -13,6 +13,12 @@ export const routes: Routes = [
         )
     },
     {
+        path: 'create-directory/:id',
+        loadComponent: () => import('./features/create/create.component').then(
+            m => m.CreateComponent
+        )
+    },
+    {
         path: 'visualize-directory/:id',
         loadComponent: () => import('./features/list/components/card-details/card-details.component').then(
             m => m.CardDetailsComponent

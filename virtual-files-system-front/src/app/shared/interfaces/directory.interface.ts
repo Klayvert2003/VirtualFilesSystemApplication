@@ -3,8 +3,8 @@ import { File } from "./files.interface";
 export interface Directory {
     directoryId: number;
     directoryName: string;
-    createdAt: string;
-    parentDirectory: Directory | null;
+    createdAt?: string;
+    parentDirectory?: Directory | null;
     subDirectories: Directory[];
     files: File[];
 }

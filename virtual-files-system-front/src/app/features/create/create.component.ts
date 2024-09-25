@@ -5,7 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { DirectoriesService } from '../../shared/services/directories.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-create',
@@ -16,7 +17,9 @@ import { Router } from '@angular/router';
 })
 export class CreateComponent {
   directoryService = inject(DirectoriesService);
+  activatedRoute = inject(ActivatedRoute);
   matSnackBar = inject(MatSnackBar);
+  location = inject(Location);
   router = inject(Router);
 
   form = new FormGroup(
@@ -32,22 +35,50 @@ export class CreateComponent {
   );
 
   onSubmit() {
-    this.directoryService.saveRootDirectory(
-      {
-          directoryName: this.form.controls.directoryName.value
-      }
-    ).subscribe(() => {
-      this.matSnackBar.open(
-        "Diretório criado com sucesso!",
-        "Ok",
-        {
-          duration: 3000,
-          horizontalPosition: 'right',
-          verticalPosition: 'top'
-        }
-      );
+    const directoryId = Number(this.activatedRoute.snapshot.paramMap.get("id"));
 
-      this.router.navigateByUrl('/');
-    })
+    if (directoryId !== null) {
+      this.directoryService.saveSubDirectory(
+        {
+            directoryName: this.form.controls.directoryName.value,
+            parentDirectory: {
+              directoryId: directoryId,
+              directoryName: '',
+              subDirectories: [],
+              files: []
+            }
+        }
+      ).subscribe(() => {
+        this.matSnackBar.open(
+          "Subdiretório criado com sucesso!",
+          "Ok",
+          {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top'
+          }
+        );
+
+        this.location.back();
+      })
+    } else {
+        this.directoryService.saveRootDirectory(
+          {
+              directoryName: this.form.controls.directoryName.value
+          }
+        ).subscribe(() => {
+          this.matSnackBar.open(
+            "Diretório criado com sucesso!",
+            "Ok",
+            {
+              duration: 3000,
+              horizontalPosition: 'right',
+              verticalPosition: 'top'
+            }
+          );
+
+          this.router.navigateByUrl('/');
+        })
+      }
   }
 }
