@@ -24,3 +24,8 @@ app-card, app-card-file {
 .create-button {
     margin-left: auto;
 }
+
+.create-buttons {
+    display: flex;
+    gap: 16px;
+}
