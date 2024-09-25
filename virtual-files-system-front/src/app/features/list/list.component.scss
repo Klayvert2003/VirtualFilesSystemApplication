@@ -1,17 +1,23 @@
 .action-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 16px 0;
 }
 
 .card-container {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 40px;
     gap: 16px;
-    justify-content: flex-start;
+    justify-content: left;
 }
 
 app-card {
     flex: 1 1 150px;
     max-width: 200px;
+}
+
+.create-button {
+    margin-left: auto;
+    display: flex;
 }
