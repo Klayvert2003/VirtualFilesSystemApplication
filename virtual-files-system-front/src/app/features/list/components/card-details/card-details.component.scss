@@ -9,12 +9,12 @@
     flex-wrap: wrap;
     margin-top: 40px;
     gap: 16px;
-    justify-content: space-between;
+    justify-content: left;
 }
 
 app-card, app-card-file {
     flex: 1 1 150px;
-    max-width: 150px;
+    max-width: 200px;
 }
 
 .go-back-button {
