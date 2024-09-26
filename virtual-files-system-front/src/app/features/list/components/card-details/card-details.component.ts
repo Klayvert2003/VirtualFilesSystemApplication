@@ -36,11 +36,7 @@ export class CardDetailsComponent {
         this.directory = data;
 
         if ((this.directory?.subDirectories ?? []).length === 0 && (this.directory?.files ?? []).length === 0) {
-          this.snackBar.open('Pasta vazia', 'Fechar', {
-            duration: 3000,
-            horizontalPosition: 'center',
-            verticalPosition: 'top'
-          });
+          this.snackBar.open('Pasta vazia', 'Fechar');
         }
       },
       error: (err) => {
