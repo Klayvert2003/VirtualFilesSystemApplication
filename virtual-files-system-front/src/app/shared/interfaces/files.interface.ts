@@ -1,7 +1,7 @@
 import { Directory } from "./directory.interface";
 
 export interface File {
-    id?: number;
+    id: number;
     fileName: string;
     createdAt?: string;
     directory: Directory | null

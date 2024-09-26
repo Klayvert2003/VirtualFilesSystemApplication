@@ -9,7 +9,19 @@ import { FilePayload } from '../interfaces/payload.file.interface';
 export class FilesService {
     httpClient = inject(HttpClient);
 
+    findById(fileId: number) {
+      return this.httpClient.get<File>(`/api/file/find?id=${fileId}`);
+    }
+
     saveFile(payload: FilePayload) {
       return this.httpClient.post<File>("/api/file/save", payload);
+    };
+
+    updateFile(payload: File) {
+      return this.httpClient.put<File>("/api/file/update", payload);
+    };
+
+    deleteFile(fileId: number) {
+      return this.httpClient.delete(`/api/file/delete/${fileId}`);
     };
 }
