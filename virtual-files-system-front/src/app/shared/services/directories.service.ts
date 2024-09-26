@@ -28,4 +28,8 @@ export class DirectoriesService {
     deleteDirectory(directoryId: number) {
       return this.httpClient.delete(`/api/directory/delete/${directoryId}`);
     };
+
+    updateDirectory(payload: Directory) {
+      return this.httpClient.put<Directory>("/api/directory/update", payload);
+    };
 }

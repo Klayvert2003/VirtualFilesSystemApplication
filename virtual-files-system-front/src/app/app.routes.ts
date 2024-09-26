@@ -19,6 +19,12 @@ export const routes: Routes = [
         )
     },
     {
+        path: 'update-directory/:id',
+        loadComponent: () => import('./features/update-directory/update-directory.component').then(
+            m => m.UpdateDirectoryComponent
+        )
+    },
+    {
         path: 'create-file/:directoryId',
         loadComponent: () => import('./features/create-file/create-file.component').then(
             m => m.CreateFileComponent
