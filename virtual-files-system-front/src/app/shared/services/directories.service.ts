@@ -24,4 +24,8 @@ export class DirectoriesService {
     saveSubDirectory(payload: SubDirectoryPayload) {
       return this.httpClient.post<Directory>("/api/directory/save", payload);
     };
+
+    deleteDirectory(directoryId: number) {
+      return this.httpClient.delete(`/api/directory/delete/${directoryId}`);
+    };
 }

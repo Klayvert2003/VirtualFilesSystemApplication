@@ -11,7 +11,7 @@
                         <mat-icon>autorenew</mat-icon>
                         Atualizar
                     </button>
-                    <button class="delete-button" mat-menu-item>
+                    <button (click)="onClickDelete(directory().directoryId)" class="delete-button" mat-menu-item>
                         <mat-icon>delete</mat-icon>
                         Deletar
                     </button>
