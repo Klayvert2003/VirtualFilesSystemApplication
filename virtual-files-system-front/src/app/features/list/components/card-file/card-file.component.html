@@ -1,7 +1,22 @@
 <div class="card-container">
-    <mat-card class="card-file" appearance="outlined">
+    <mat-card appearance="outlined">
         <mat-card-header>
+            <button class="options-button" mat-icon-button [matMenuTriggerFor]="menu"
+                (click)="$event.stopPropagation(); $event.preventDefault();">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button [routerLink]="['/update-file', file().id]" class="update-button" mat-menu-item>
+                    <mat-icon>autorenew</mat-icon>
+                    Atualizar
+                </button>
+                <button (click)="onClickDelete(file().id)" class="delete-button" mat-menu-item>
+                    <mat-icon>delete</mat-icon>
+                    Deletar
+                </button>
+            </mat-menu>
         </mat-card-header>
+
         <img mat-card-image src="../../../../../assets/file.png" alt="Directory Image" class="file-image">
         <mat-card-actions class="text-container">
             <p class="p-content">{{ fileName() }}</p>
