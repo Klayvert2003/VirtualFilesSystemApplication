@@ -8,3 +8,33 @@
     font-size: 100%;
     color: black;
 }
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.options-button {
+    color: black;
+    display: flex;
+    margin-left: auto;
+}
+
+.update-button {
+    background-color: white;
+    color: black;
+  }
+  
+.update-button mat-icon {
+    color: #ffc107;
+}
+
+.delete-button {
+    background-color: white;
+    color: black;
+}
+
+.delete-button mat-icon {
+    color: red;
+}

@@ -2,7 +2,22 @@
     <a [routerLink]="['/visualize-directory', directory().directoryId]" style="text-decoration: none;">
         <mat-card class="card-directory" appearance="outlined">
             <mat-card-header>
+                <button class="options-button" mat-icon-button [matMenuTriggerFor]="menu"
+                    (click)="$event.stopPropagation(); $event.preventDefault();">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button class="update-button" mat-menu-item>
+                        <mat-icon>autorenew</mat-icon>
+                        Atualizar
+                    </button>
+                    <button class="delete-button" mat-menu-item>
+                        <mat-icon>delete</mat-icon>
+                        Deletar
+                    </button>
+                </mat-menu>
             </mat-card-header>
+
             <img mat-card-image src="../../../../../assets/folder.jpeg" alt="Directory Image" class="directory-image">
             <mat-card-actions class="text-container">
                 <p class="p-content">{{ directoryName() }}</p>
