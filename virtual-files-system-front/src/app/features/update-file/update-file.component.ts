@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -8,11 +8,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
 import { File } from '../../shared/interfaces/files.interface';
 import { FilesService } from '../../shared/services/files.service';
+import { BackButtonComponent } from "../../shared/components/back-button/back-button.component";
 
 @Component({
   selector: 'app-update-file',
   standalone: true,
-  imports: [MatLabel, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [MatLabel, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, BackButtonComponent],
   templateUrl: './update-file.component.html',
   styleUrl: './update-file.component.scss'
 })

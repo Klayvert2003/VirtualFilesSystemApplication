@@ -7,11 +7,12 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { DirectoriesService } from '../../shared/services/directories.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { BackButtonComponent } from "../../shared/components/back-button/back-button.component";
 
 @Component({
   selector: 'app-create',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, BackButtonComponent],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
 })

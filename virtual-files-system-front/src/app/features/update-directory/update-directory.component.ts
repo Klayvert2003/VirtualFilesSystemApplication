@@ -8,11 +8,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
+import { BackButtonComponent } from "../../shared/components/back-button/back-button.component";
 
 @Component({
   selector: 'app-update-directory',
   standalone: true,
-  imports: [MatLabel, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [MatLabel, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, BackButtonComponent],
   templateUrl: './update-directory.component.html',
   styleUrl: './update-directory.component.scss'
 })

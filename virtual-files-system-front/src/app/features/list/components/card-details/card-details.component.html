@@ -1,5 +1,5 @@
 <div class="action-container">
-    <button (click)="goBack()" class="go-back-button" mat-raised-button color="primary">Voltar</button>
+    <app-back-button></app-back-button>
 
     <div class="create-buttons">
         <a mat-raised-button color="primary" [routerLink]="['/create-file', directory?.directoryId]" class="create-button">Criar arquivo</a>

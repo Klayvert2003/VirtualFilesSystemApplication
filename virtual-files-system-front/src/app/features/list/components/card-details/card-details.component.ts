@@ -7,11 +7,12 @@ import { CardFileComponent } from '../card-file/card-file.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { BackButtonComponent } from "../../../../shared/components/back-button/back-button.component";
 
 @Component({
   selector: 'app-card-details',
   standalone: true,
-  imports: [RouterModule, CardComponent, CardFileComponent, MatButtonModule],
+  imports: [RouterModule, CardComponent, CardFileComponent, MatButtonModule, BackButtonComponent],
   templateUrl: './card-details.component.html',
   styleUrl: './card-details.component.scss'
 })
