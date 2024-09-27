@@ -1,27 +1,27 @@
 <div class="card-container">
     <a [routerLink]="['/visualize-directory', directory().directoryId]" style="text-decoration: none;">
-        <mat-card class="card-directory" appearance="outlined">
-            <mat-card-header>
-                <button class="options-button" mat-icon-button [matMenuTriggerFor]="menu"
-                    (click)="$event.stopPropagation(); $event.preventDefault();">
-                    <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                    <button [routerLink]="['/update-directory', directory().directoryId]" class="update-button" mat-menu-item>
-                        <mat-icon>autorenew</mat-icon>
-                        Atualizar
-                    </button>
-                    <button (click)="onClickDelete(directory().directoryId)" class="delete-button" mat-menu-item>
-                        <mat-icon>delete</mat-icon>
-                        Deletar
-                    </button>
-                </mat-menu>
-            </mat-card-header>
+        <button class="options-button" mat-icon-button [matMenuTriggerFor]="menu"
+            (click)="$event.stopPropagation(); $event.preventDefault();">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button [routerLink]="['/update-directory', directory().directoryId]" class="edit-button" mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                Renomear
+            </button>
+            <button (click)="onClickDelete(directory().directoryId)" class="delete-button" mat-menu-item>
+                <mat-icon>delete</mat-icon>
+                Deletar
+            </button>
+        </mat-menu>
 
-            <img mat-card-image src="../../../../../assets/folder.jpeg" alt="Directory Image" class="directory-image">
-            <mat-card-actions class="text-container">
-                <p class="p-content">{{ directoryName() }}</p>
-            </mat-card-actions>
-        </mat-card>
+        <svg mat-card-image xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 48 48">
+            <path fill="#FFA000" d="M40,12H22l-4-4H8c-2.2,0-4,1.8-4,4v8h40v-4C44,13.8,42.2,12,40,12z"></path>
+            <path fill="#FFCA28"
+                d="M40,12H8c-2.2,0-4,1.8-4,4v20c0,2.2,1.8,4,4,4h32c2.2,0,4-1.8,4-4V16C44,13.8,42.2,12,40,12z"></path>
+        </svg>
+        <mat-card-actions class="text-container">
+            <p class="p-content">{{ directoryName() }}</p>
+        </mat-card-actions>
     </a>
 </div>
