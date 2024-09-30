@@ -24,6 +24,7 @@ Prontinho! Após o build você tera acesso ao frontend pela url 'http://localhos
 Caso haja interesse em acessar o banco de dados, é possível acessar o mesmo com as seguintes credenciais:
 ```
 Nome do Banco: file_system
+Host do Banco: localhost
 Usuário: postgres
 Senha: postgres
 Porta: 5432
