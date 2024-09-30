@@ -11,7 +11,7 @@ Este projeto tem como finalidade simular um gerenciador de pastas e arquivos vir
 - PostgreSQL latest version
 - NodeJS 18.18.2
 - Angular 17.3.0
-- Docker
+- Docker 24.0.7
 
 ## O que a aplicação contempla?
 Esta aplicação contempla as tecnologias mais utilizadas do mercado, como base de dados foi utilizado o PostgreSQL, fazendo a melhor modelagem do banco de dados, no BackEnd Java 22, uma das versões mais recentes do Java, usando as melhores tecnologias para o desenvolvimento, sendo elas: SpringBoot para a API REST, SwaggerAPI para documentação de API, FlyWay para realizar as migrations no banco de dados e JaCoCo para realizar a cobertura dos testes do código. Já no FrontEnd, foi utilizado o framework Angular com componentização a partir da biblioteca Material, aplicando as melhores práticas de sites estáticos.
